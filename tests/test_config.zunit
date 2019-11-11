@@ -3,49 +3,31 @@
 @setup {
     PATH="/bin:/usr/bin:/usr/local/bin"
 	  load ../zsh-bitwarden.zsh
-    load _support/functions
 }
 
 @teardown {
 }
 
-@test 'Load value plugindir config' {
-	  # run get_config_value key config
+@test 'Validate _get_type' {
+	  run _get_type "1|111122222-"
 
-	  assert $plugin_dir same_as value
+	  assert "$output" same_as "1"
 }
 
-# @test 'Load value with space from config' {
-# 	load ../general/parse_config.sh
-# 	run get_config_value 'space key'
+@test 'Validate _get_id' {
+	  run _get_id "2|value-"
 
-# 	assert "$output" same_as "space value"
-# }
+	  assert "$output" same_as "value-"
+}
 
-# @test 'Load value from non-default config' {
-# 	load ../general/parse_config.sh
-# 	run get_config_value 'other' other_config
+@test 'validate _get_type_field login.password' {
+	  run _get_type_field "1|value-"
 
-# 	assert "$output" same_as 'ovalue'
-# }
+	  assert "$output" same_as ".login.password"
+}
 
-# @test 'Load improperly formatted value' {
-# 	load ../general/parse_config.sh
-# 	run get_config_value 'nospace'
+@test 'validate _get_type_field .notes' {
+	  run _get_type_field "2|value-"
 
-# 	assert $state equals 1
-# }
-
-# @test 'load nonexistent value' {
-# 	load ../general/parse_config.sh
-# 	run get_config_value 'bad'
-
-# 	assert $state equals 1
-# }
-
-# @test 'load nonexistent file' {
-# 	load ../general/parse_config.sh
-# 	run get_config_value key badconfig
-
-# 	assert $state equals 2
-# }
+	  assert "$output" same_as ".notes"
+}

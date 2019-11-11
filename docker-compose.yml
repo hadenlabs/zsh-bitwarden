@@ -1,0 +1,18 @@
+# Docker Compose
+# https://docs.docker.com/compose/
+# Usage: docker-compose up
+---
+version: "3.6"
+
+services:
+
+  app:
+    build:
+      context: .
+      dockerfile: provision/docker/app/Dockerfile
+    environment: &environment
+      - STAGE=local
+    volumes:
+      - .:/usr/src
+    env_file:
+      - .env

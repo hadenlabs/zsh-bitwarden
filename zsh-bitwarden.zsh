@@ -13,7 +13,7 @@ plugin_dir=$(dirname "${0}":A)
 # shellcheck source=/dev/null
 source "${plugin_dir}"/src/helpers/messages.zsh
 
-PACKAGE_NAME='@bitwarden/cli'
+package_name='@bitwarden/cli'
 
 die(){
     message_error "$1";
@@ -79,9 +79,9 @@ function bw::dependences {
 }
 
 function bw::install {
-    message_info "Installing ${PACKAGE_NAME}"
+    message_info "Installing ${package_name}"
     bw::validation
-    yarn global add ${PACKAGE_NAME}
+    yarn global add ${package_name}
 }
 
 function bw::search {

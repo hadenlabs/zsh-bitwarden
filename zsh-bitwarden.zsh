@@ -82,6 +82,7 @@ function bw::install {
     message_info "Installing ${package_name}"
     bw::validation
     yarn global add ${package_name}
+    message_success "Installed {package_name}"
 }
 
 function bw::search {

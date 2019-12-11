@@ -2,22 +2,20 @@
 # -*- coding: utf-8 -*-
 
 #
-# Defines install bitwarde for osx or linux.
+# Defines install bitwarden for osx or linux.
 #
 # Authors:
 #   Luis Mayta <slovacus@gmail.com>
 #
+bw_package_name=@bitwarden/cli
 
-plugin_dir=$(dirname "${0}":A)
+ZSH_BW_PATH_ROOT=$(dirname "${0}":A)
 
 # shellcheck source=/dev/null
-source "${plugin_dir}"/src/helpers/messages.zsh
+source "${ZSH_BW_PATH_ROOT}"/src/helpers/messages.zsh
 
-package_name='@bitwarden/cli'
-
-die(){
-    message_error "$1";
-}
+# shellcheck source=/dev/null
+source "${ZSH_BW_PATH_ROOT}"/src/helpers/tools.zsh
 
 _get_type () {
     local bw_type
@@ -79,10 +77,10 @@ function bw::dependences {
 }
 
 function bw::install {
-    message_info "Installing ${package_name}"
+    message_info "Installing ${bw_package_name}"
     bw::validation
-    yarn global add ${package_name}
-    message_success "Installed {package_name}"
+    yarn global add ${bw_package_name}
+    message_success "Installed {bw_package_name}"
 }
 
 function bw::search {

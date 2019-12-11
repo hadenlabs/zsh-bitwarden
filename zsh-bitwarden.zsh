@@ -62,7 +62,7 @@ _get_item_by_type() {
 }
 
 function bw::validation {
-    if [ ! -x "$(command which node)" ]; then
+    if ! type -p node > /dev/null; then
         message_error "is Neccesary Node"
     else
         bw::dependences
@@ -70,7 +70,7 @@ function bw::validation {
 }
 
 function bw::dependences {
-    if [ ! -x "$(command which yarn)" ]; then
+    if ! type -p yarn > /dev/null; then
         message_info "Installing yarn"
         curl -o- -L https://yarnpkg.com/install.sh | bash
     fi
@@ -98,6 +98,6 @@ function bw::search {
     fi
 }
 
-if [ ! -x "$(command which bw)" ]; then
+if ! type -p bw > /dev/null; then
     bw::install
 fi

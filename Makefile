@@ -62,32 +62,19 @@ help:
 	@echo ''
 	@echo 'Usage:'
 	@echo '    environment               create environment with pyenv'
-	@echo '    clean                     remove files of build'
 	@echo '    setup                     install requirements'
 	@echo ''
 	@make docker.help
 	@make docs.help
 	@make test.help
 
-clean:
-	@echo "=====> clean files unnecessary for ${TEAM}..."
-ifneq (Darwin,$(OS))
-	@sudo rm -rf .tox *.egg *.egg-info dist build .coverage .eggs .mypy_cache
-	@sudo rm -rf docs/build
-	@sudo find . -name '__pycache__' -delete -print -o -name '*.pyc' -delete -print -o -name '*.pyo' -delete -print -o -name '*~' -delete -print -o -name '*.tmp' -delete -print
-else
-	@rm -rf .tox *.egg *.egg-info dist build .coverage .eggs .mypy_cache
-	@rm -rf docs/build
-	@find . -name '__pycache__' -delete -print -o -name '*.pyc' -delete -print -o -name '*.pyo' -delete -print -o -name '*~' -delete -print -o -name '*.tmp' -delete -print
-endif
-	@echo "=====> end clean files unnecessary for ${TEAM}..."
-
 setup: clean
 	@echo "=====> install packages..."
 	$(PIPENV_INSTALL) --dev --skip-lock
-	$(PIPENV_RUN) pre-commit install && pre-commit install -t pre-push
+	$(PIPENV_RUN) pre-commit install
+	$(PIPENV_RUN) pre-commit install -t pre-push
 	@cp -rf provision/git/hooks/prepare-commit-msg .git/hooks/
-	@[[ -e ".env" ]] || cp -rf .env.example .env
+	@[ -e ".env" ] || cp -rf .env.example .env
 	@echo ${MESSAGE_HAPPY}
 
 environment: clean

@@ -9,14 +9,6 @@
 #
 bw_package_name=@bitwarden/cli
 
-ZSH_BW_PATH_ROOT=$(dirname "${0}":A)
-
-# shellcheck source=/dev/null
-source "${ZSH_BW_PATH_ROOT}"/src/helpers/messages.zsh
-
-# shellcheck source=/dev/null
-source "${ZSH_BW_PATH_ROOT}"/src/helpers/tools.zsh
-
 _get_type () {
     local bw_type
     bw_type="${1}"

@@ -45,11 +45,17 @@ _get_item_by_type() {
         | pbcopy
 }
 
+function bw::search::type {
+    bw list items  | jq -r '.[] | select(.type == 2) | [.id, .type, .name, .login.username] | @csv' \
+        | sed 's/"//g' \
+        | awk 'BEGIN{FS=","; OFS="\t"} {print $1,$2,$3,$4}'
+}
+
 function bw::search {
     if hash bw 2>/dev/null; then
         local bw_type_id
         bw_type_id=$(bw list items \
-                         | jq '.[] | "\(.type) | \(.name) | username: \(.login.username) | id: \(.type)|\(.id)" ' \
+                         | jq -r '.[] | "\(.type) | \(.name) | username: \(.login.username) | id: \(.type)|\(.id)" ' \
                          | fzf \
                          | awk '{print $(NF -0)}' \
                          | perl -pe 'chomp' \

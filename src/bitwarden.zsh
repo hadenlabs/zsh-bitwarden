@@ -82,7 +82,7 @@ function bw::value::factory {
     elif [ "${type}" -eq 3 ]; then
         response="$(bw::value::cards "${payload}")"
     fi
-    echo -e "$response" | ghead -c -1 | pbcopy
+    echo -e "$response"
 }
 
 function bw::search::notes {
@@ -117,5 +117,5 @@ function bw::search {
                | awk '{print $1}' \
                | perl -pe 'chomp' \
             )
-    bw::value::factory "${uuid}"
+    bw::value::factory "${uuid}" | ghead -c -1 | pbcopy
 }

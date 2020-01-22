@@ -9,6 +9,12 @@
 #
 bw_package_name=@bitwarden/cli
 
+BW_ROOT_DIR=$(dirname "$0")
+BW_SRC_DIR="${BW_ROOT_DIR}"/src
+
+# shellcheck source=/dev/null
+source "${BW_SRC_DIR}"/base.zsh
+
 _get_type () {
     local bw_type
     bw_type="${1}"
@@ -53,26 +59,14 @@ _get_item_by_type() {
         | pbcopy
 }
 
-function bw::validation {
-    if ! type -p node > /dev/null; then
-        message_error "is Neccesary Node"
-    else
-        bw::dependences
-    fi
-}
-
-function bw::dependences {
-    if ! type -p yarn > /dev/null; then
-        message_info "Installing yarn"
-        curl -o- -L https://yarnpkg.com/install.sh | bash
-    fi
-}
-
 function bw::install {
+    local has_dependences
+    has_dependences="$(bw::has_dependences)"
     message_info "Installing ${bw_package_name}"
-    bw::validation
-    yarn global add ${bw_package_name}
-    message_success "Installed {bw_package_name}"
+    if [ "${has_dependences}" -eq 1 ]; then
+        yarn global add ${bw_package_name}
+        message_success "Installed {bw_package_name}"
+    fi
 }
 
 function bw::search {

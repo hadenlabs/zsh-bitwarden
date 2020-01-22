@@ -51,6 +51,14 @@ function bw::has_dependences {
     return
 }
 
+function bw::exist {
+    if ! type -p bw > /dev/null; then
+        echo 0
+        return
+    fi
+    echo 1
+}
+
 
 if [ "$(bw::has_bw_session)" -eq 0 ]; then
     message_warning "PLease add the value of BW_SESSION"

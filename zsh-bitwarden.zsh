@@ -28,4 +28,4 @@ function bw::install {
     fi
 }
 
-if ! type -p bw > /dev/null; then bw::install; fi
+if [ "$(bw::exist)" -eq 0  ]; then bw::install; fi

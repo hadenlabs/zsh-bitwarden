@@ -63,6 +63,12 @@ function bw::search::cards {
         | awk 'BEGIN{FS=","; OFS="\t"} {print $1,$2,$3,$4}'
 }
 
+function bw::search::all {
+    bw list items  | jq -r '.[] | [.id, .type, .name, .login.username] | @csv' \
+        | sed 's/"//g' \
+        | awk 'BEGIN{FS=","; OFS="\t"} {print $1,$2,$3,$4}'
+}
+
 function bw::search {
     if hash bw 2>/dev/null; then
         local bw_type_id

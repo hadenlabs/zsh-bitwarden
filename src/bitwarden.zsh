@@ -45,21 +45,58 @@ _get_item_by_type() {
         | pbcopy
 }
 
-function bw::search::type {
+function bw::value::notes {
+    local payload response
+    payload="${1}"
+    response=$(echo  "${payload}" \
+                   | jq -r '.notes' \
+                   | sed 's/\"//g' \
+                   | perl -pe 'chomp'
+            )
+    echo "${response}"
+}
+
+function bw::value::cards {
+    local payload response
+    payload="${1}"
+    response=$(echo "${payload}" | jq -r '.card')
+    echo "${response}"
+}
+
+function bw::value::login {
+    local payload response
+    payload="${1}"
+    response=$(echo "${payload}" | jq -r '.login.password')
+    echo "${response}"
+}
+
+function bw::value::factory {
+    local uuid payload type response
+    uuid="${1}"
+    payload=$(bw get item "${uuid}")
+    type=$(echo -n "${payload}" | jq -r '.type')
+    if [ "${type}" -eq 1 ]; then
+        response="$(bw::value::login "${payload}")"
+    elif [ "${type}" -eq 2 ]; then
+        response="$(bw::value::notes "${payload}")"
+    elif [ "${type}" -eq 3 ]; then
+        response="$(bw::value::cards "${payload}")"
+    fi
+    echo -e "$response" | ghead -c -1 | pbcopy
+}
+
+function bw::search::notes {
     bw list items  | jq -r '.[] | select(.type == 2) | [.id, .type, .name, .login.username] | @csv' \
-        | sed 's/"//g' \
         | awk 'BEGIN{FS=","; OFS="\t"} {print $1,$2,$3,$4}'
 }
 
 function bw::search::login {
     bw list items  | jq -r '.[] | select(.type == 1) | [.id, .type, .name, .login.username] | @csv' \
-        | sed 's/"//g' \
         | awk 'BEGIN{FS=","; OFS="\t"} {print $1,$2,$3,$4}'
 }
 
 function bw::search::cards {
-    bw list items  | jq -r '.[] | select(.type == 2) | [.id, .type, .name, .login.username] | @csv' \
-        | sed 's/"//g' \
+    bw list items  | jq -r '.[] | select(.type == 3) | [.id, .type, .name, .login.username] | @csv' \
         | awk 'BEGIN{FS=","; OFS="\t"} {print $1,$2,$3,$4}'
 }
 
@@ -70,16 +107,15 @@ function bw::search::all {
 }
 
 function bw::search {
-    if hash bw 2>/dev/null; then
-        local bw_type_id
-        bw_type_id=$(bw list items \
-                         | jq -r '.[] | "\(.type) | \(.name) | username: \(.login.username) | id: \(.type)|\(.id)" ' \
-                         | fzf \
-                         | awk '{print $(NF -0)}' \
-                         | perl -pe 'chomp' \
-                         | sed 's/\"//g'
-                  )
-        _get_item_by_type "${bw_type_id}"
-
+    local uuid
+    if [ "$(bw::exist)" -eq 0 ]; then
+        message_warning "Please review install bitwarden"
+        return
     fi
+    uuid=$(bw::search::all \
+               | fzf \
+               | awk '{print $1}' \
+               | perl -pe 'chomp' \
+            )
+    bw::value::factory "${uuid}"
 }

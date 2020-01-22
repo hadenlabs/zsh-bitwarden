@@ -82,7 +82,7 @@ function bw::value::factory {
     elif [ "${type}" -eq 3 ]; then
         response="$(bw::value::cards "${payload}")"
     fi
-    echo -e "$response"
+    echo -e "${response}"
 }
 
 function bw::search::notes {

@@ -68,7 +68,7 @@ help:
 	@make docs.help
 	@make test.help
 
-setup: clean
+setup:
 	@echo "=====> install packages..."
 	$(PIPENV_INSTALL) --dev --skip-lock
 	$(PIPENV_RUN) pre-commit install
@@ -77,7 +77,7 @@ setup: clean
 	@[ -e ".env" ] || cp -rf .env.example .env
 	@echo ${MESSAGE_HAPPY}
 
-environment: clean
+environment:
 	@echo "=====> loading virtualenv ${PYENV_NAME}..."
 	@pipenv --venv || $(PIPENV_INSTALL) --skip-lock --python=${PYTHON_VERSION}
 	@echo ${MESSAGE_HAPPY}

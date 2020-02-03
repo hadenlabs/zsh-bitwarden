@@ -28,4 +28,9 @@ function bw::install {
     fi
 }
 
+# facade for use bw::search
+function fbw {
+    bw::search "${@}"
+}
+
 if [ "$(bw::exist)" -eq 0  ]; then bw::install; fi

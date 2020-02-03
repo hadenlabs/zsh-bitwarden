@@ -1,0 +1,33 @@
+{
+  "name": "zsh-bitwarden",
+  "version": "0.0.0",
+  "description": "tools with zsh apps",
+  "repository": "ssh://git@github.com/luismayta/zsh-bitwarden.git",
+  "author": "@slovacus <slovacus@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "semantic-release": "semantic-release",
+    "prettier": "prettier '**/*.{js?(on),ts?(x),scss,md,yml}' --write --list-different",
+    "prettier-check": "yarn prettier -- --write=false"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS"
+    }
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@sourcegraph/prettierrc": "^3.0.2",
+    "husky": "^4.2.1",
+    "prettier": "^1.19.1",
+    "pretty-quick": "^2.0.1",
+    "semantic-release": "^17.0.2"
+  },
+  "dependencies": {}
+}

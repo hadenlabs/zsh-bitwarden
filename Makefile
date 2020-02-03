@@ -2,6 +2,9 @@
 # See ./CONTRIBUTING.rst
 #
 
+export PATH := node_modules/.bin:$(PATH)
+export SHELL := /usr/bin/env zsh
+
 OS := $(shell uname)
 .PHONY: help
 .DEFAULT_GOAL := help
@@ -22,6 +25,7 @@ PROJECT := zsh-bitwarden
 PROJECT_PORT := 8000
 
 PYTHON_VERSION=3.8.0
+NODE_VERSION=12.14.1
 PYENV_NAME="${PROJECT}"
 
 # Configuration.
@@ -70,6 +74,7 @@ help:
 
 setup:
 	@echo "=====> install packages..."
+	yarn
 	pyenv local ${PYTHON_VERSION}
 	$(PIPENV_INSTALL) --dev --skip-lock
 	$(PIPENV_RUN) pre-commit install

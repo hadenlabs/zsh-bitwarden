@@ -33,10 +33,6 @@ repos:
     hooks:
       - id: rst-linter
         exclude: (docs/*|tests/*)
-  - repo: https://github.com/pricematch/pricematch-pre-commit-hooks
-    rev: 93f5296d960021ee1f507a59a0bca1fe8f73c285
-    hooks:
-      - id: do_not_commit
   - repo: https://github.com/pre-commit/mirrors-pylint
     rev: v2.4.4
     hooks:

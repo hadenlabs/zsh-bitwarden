@@ -9,21 +9,12 @@ function bw::has_bw_session {
     echo 1
 }
 
-function bw::node::install {
-    if ! type nvm > /dev/null; then
-        message_warning "is Neccesary install nvm, please install antibody bundle luismayta/zsh-nvm branch:develop"
+function bw::has_fzf {
+    if ! type -p fzf > /dev/null; then
+        echo 0
         return
     fi
-    message_info "Install version of node"
-    nvm install --lts
-    nvm use --lts --default
-    message_success "Install version of node"
-}
-
-function bw::yarn::install {
-    message_info "Installing yarn"
-    curl -o- -L https://yarnpkg.com/install.sh | bash
-    message_success "Installed yarn"
+    echo 1
 }
 
 function bw::has_node {
@@ -34,7 +25,6 @@ function bw::has_node {
     echo 1
 }
 
-
 function bw::has_yarn {
     if ! type -p yarn > /dev/null; then
         echo 0
@@ -44,7 +34,7 @@ function bw::has_yarn {
 }
 
 function bw::has_dependences {
-    if [ "$(bw::has_yarn)" -eq 1 ] && [ "$(bw::has_node)" -eq 1 ]; then
+    if [ "$(bw::has_fzf)" -eq 1 ] && [ "$(bw::has_node)" -eq 1 ] && [ "$(bw::has_yarn)" -eq 1 ]; then
         echo 1
         return
     fi
@@ -59,9 +49,29 @@ function bw::exist {
     echo 1
 }
 
+function bw::node::install {
+    if ! type nvm > /dev/null; then
+        message_warning "${BW_MESSAGE_NVM}"
+        return
+    fi
+    message_info "Install version of node"
+    nvm install --lts
+    nvm use --lts --default
+    message_success "Install version of node"
+}
 
-if [ "$(bw::has_bw_session)" -eq 0 ]; then
-    message_warning "PLease add the value of BW_SESSION"
-fi
-if [ "$(bw::has_node)" -eq 0 ]; then bw::node::install; fi
-if [ "$(bw::has_yarn)" -eq 0 ]; then bw::yarn::install; fi
+function bw::yarn::install {
+    message_info "Installing yarn"
+    curl -o- -L https://yarnpkg.com/install.sh | bash
+    message_success "Installed yarn"
+}
+
+function bw::fzf::install {
+    if ! type -p brew > /dev/null; then
+        message_warning "${BW_MESSAGE_BREW}"
+        return
+    fi
+    message_info "Installing fzf"
+    brew install fzf
+    message_success "Installed fzf"
+}

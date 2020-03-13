@@ -1,3 +1,6 @@
-package.json
+.next
+.serverless_nextjs
+node_modules
+dist
 package-lock.json
 dist/

@@ -4,7 +4,7 @@ MAINTAINER Luis Mayta slovacus@gmail.com
 
 ARG stage
 
-LABEL NAME zsh-scmpuff-doc
+LABEL NAME zsh-bitwarden-doc
 
 ENV USERNAME developer
 

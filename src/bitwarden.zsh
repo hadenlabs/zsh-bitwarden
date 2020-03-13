@@ -48,33 +48,29 @@ _get_item_by_type() {
 function bw::value::notes {
     local payload response
     payload="${1}"
-    response=$(echo  "${payload}" \
-                   | jq -r '.notes' \
-                   | sed 's/\"//g' \
-                   | perl -pe 'chomp'
-            )
+    response=$(jq -r '.notes' <<<"$payload")
     echo "${response}"
 }
 
 function bw::value::cards {
     local payload response
     payload="${1}"
-    response=$(echo "${payload}" | jq -r '.card')
+    response=$(jq -r '.card' <<<"$payload")
     echo "${response}"
 }
 
 function bw::value::login {
     local payload response
     payload="${1}"
-    response=$(echo "${payload}" | jq -r '.login.password')
+    response=$(jq -r '.login.password' <<<"$payload")
     echo "${response}"
 }
 
 function bw::value::factory {
     local uuid payload type response
     uuid="${1}"
-    payload=$(bw get item "${uuid}")
-    type=$(echo -n "${payload}" | jq -r '.type')
+    payload=$(bw --raw get item "${uuid}")
+    type=$(jq -r '.type' <<<"${payload}")
     if [ "${type}" -eq 1 ]; then
         response="$(bw::value::login "${payload}")"
     elif [ "${type}" -eq 2 ]; then
@@ -82,7 +78,7 @@ function bw::value::factory {
     elif [ "${type}" -eq 3 ]; then
         response="$(bw::value::cards "${payload}")"
     fi
-    echo -e "${response}"
+    echo "${response}"
 }
 
 function bw::search::notes {

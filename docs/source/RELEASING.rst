@@ -27,7 +27,7 @@ Check sintax code:
 Bump a new version
 ------------------
 
-Make a new version of zsh-scmpuff in the following steps:
+Make a new version of zsh-bitwarden in the following steps:
 
 * Make sure everything is commit to github.com.
 * Update ``Changelog.rst`` with the next version.

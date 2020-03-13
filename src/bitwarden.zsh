@@ -101,9 +101,8 @@ function bw::search::cards {
 }
 
 function bw::search::all {
-    bw list items  | jq -r '.[] | [.id, .type, .name, .login.username] | @csv' \
-        | sed 's/"//g' \
-        | awk 'BEGIN{FS=","; OFS="\t"} {print $1,$2,$3,$4}'
+    bw list items  | jq -r '.[] | [.id, .type, .name, .login.username] | @tsv' \
+        | sed 's/"//g'
 }
 
 function bw::search {

@@ -1,4 +1,4 @@
-const escape = require('shell-quote').quote;
+const escape = require('shell-quote').quote
 
 module.exports = {
   '*.{ts,tsx,js,json,css}': (filenames) => [
@@ -6,4 +6,5 @@ module.exports = {
     ...filenames.map((filename) => `git add "${filename}"`),
   ],
   '*.{ts,tsx,js,jsx}': ['eslint'],
-};
+  '*.{ts,tsx,css}': ['stylelint'],
+}

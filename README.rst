@@ -1,9 +1,9 @@
 zsh-bitwarden
 =============
 
-|Build Status| |GitHub issues| |GitHub license|
-
 bitwarden for zsh
+
+|Build Status| |GitHub issues| |GitHub license|
 
 :Version: 0.0.0
 :Web: https://github.com/luismayta/zsh-bitwarden
@@ -25,8 +25,9 @@ Dependencies
 .. code-block:: bash
 
     https://github.com/mafredri/zsh-async
+    https://github.com/luismayta/zsh-core
+    https://github.com/luismayta/zsh-notify
     https://github.com/luismayta/zsh-functions
-
 
 Installation
 ------------
@@ -66,26 +67,31 @@ install this plugin by doing the following:
 If you're using `Antigen <https://github.com/getantibody/antibody>`__,
 install this plugin by doing the following:
 
-1. Add ``antibody bundle luismayta/zsh-bitwarden`` to your
-   ``.zshrc`` where you're adding your other plugins.
+1. Add :
+
+    .. code-block:: bash
+
+        antibody bundle luismayta/zsh-bitwarden
+
+    to your ``.zshrc`` where you're adding your other plugins.
 2. Either open a new terminal to force zsh to load the new plugin, or
    run ``antibody bundle luismayta/zsh-bitwarden`` in a
    running zsh session.
 3. Enjoy!
 
 Quick Start
-===========
+-----------
 
 - Fork this repository
 
 Usage
------
+^^^^^
 
 - Install dependences
 
 .. code-block:: bash
 
-    λ make setup
+  λ make setup
 
 Support
 -------
@@ -153,7 +159,7 @@ Made with :coffee: and :pizza: by `Luis Mayta`_ and `equipindustry`_.
 
 
 .. _`Github`: https://github.com/luismayta
-.. _`Linkedin`: https://www.linkedin.com/in/luismayta
+.. _`Linkedin`: https://pe.linkedin.com/in/luismayta
 .. _`Email`: slovacus@gmail.com
     :target: mailto:slovacus@gmail.com
 .. _`Twitter`: https://twitter.com/slovacus

@@ -69,10 +69,6 @@ function bw::search::all {
 
 function bw::search {
     local uuid
-    if [ "$(bw::exist)" -eq 0 ]; then
-        message_warning "Please review install bitwarden"
-        return
-    fi
     uuid=$(bw::search::all \
                | fzf \
                | awk '{print $1}' \

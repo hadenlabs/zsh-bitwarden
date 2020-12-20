@@ -76,3 +76,18 @@ function bw::search {
             )
     bw::value::factory "${uuid}" | ghead -c -1 | pbcopy
 }
+
+function bw::load::vars {
+    local path_name
+    if [ -z "${BITWARDEN_VARS_LIST}" ]; then
+        message_warning "please implement var BITWARDEN_VARS_LIST"
+        return
+    fi
+
+    path_name=$(echo "${BITWARDEN_VARS_LIST[@]}" | tr " " "\n" | fzf)
+    if [ -z "${path_name}" ]; then
+        message_warning "not select bitwarden"
+        return
+    fi
+    eval "$(env-secrets bw "${path_name}")"
+}

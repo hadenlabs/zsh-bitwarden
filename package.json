@@ -1,6 +1,6 @@
 {
   "name": "@hadenlabs/zsh-bitwarden",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "zsh-bitwarden for zsh",
   "repository": "ssh://git@github.com/hadenlabs/zsh-bitwarden.git",
   "author": "Luis Mayta <slovacus@gmail.com>",

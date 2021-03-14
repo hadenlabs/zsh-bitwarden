@@ -1,4 +1,4 @@
-FROM equipindustry/python:3.8.0-slim
+FROM hadenlabs/python:3.8.0-slim
 
 ARG stage
 
@@ -7,20 +7,7 @@ LABEL NAME zsh-bitwarden-app-$stage
 ENV USERNAME developer
 
 ENV PACKAGES bash \
-  git \
-  gcc \
-  libc-dev \
-  make \
-  musl-dev \
-  openssl \
-  gcc \
-  libgdal20 \
-  libev-dev \
-  curl \
-  wget \
-  tar \
-  zsh \
-  jq
+  openssl
 
 ENV ZUNIT_VERSION "0.8.2"
 
@@ -51,7 +38,7 @@ RUN apt-get update -y \
 
 
 # pipenv
-  && pip3 install pipenv \
+  && pip3 install --no-cache-dir pipenv \
   && pipenv install --dev --skip-lock \
   && pipenv shell --fancy \
 

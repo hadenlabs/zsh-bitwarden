@@ -41,7 +41,11 @@ requirements: |-
 
   ```{bash}
   https://github.com/hadenlabs/zsh-core
+
   ```
+
+usage: |
+  `CTRL x + k`: run fzf bitwarden
 
 installation:
   - 'docs/include/installation/oh-my-zsh.md'

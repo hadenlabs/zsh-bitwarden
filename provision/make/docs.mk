@@ -1,8 +1,6 @@
 #
-# See ./CONTRIBUTING.rst
+# See ./docs/contributing.md
 #
-
-FILE_README=$(ROOT_DIR)/README.rst
 
 docs:
 	make docs.help
@@ -10,12 +8,16 @@ docs:
 docs.help:
 	@echo '    Docs:'
 	@echo ''
-	@echo '        docs.show                  Show restview README'
-	@echo '        docs.make                  Make documentation html'
+	@echo '        docs.show                  Show grip readme'
+	@echo '        docs.build                 Show mkdocs'
+	@echo '        docs.serve                 server Make documentation'
 	@echo ''
 
 docs.show:
-	$(PIPENV_RUN) restview ${FILE_README}
+	$(PIPENV_RUN) grip
 
-docs.make:
-	$(docker-compose) -f ${PATH_DOCKER_COMPOSE}/dev.yml run --rm docs bash -c "cd docs && make html"
+docs.build:
+	$(PIPENV_RUN) mkdocs build
+
+docs.serve:
+	$(PIPENV_RUN) mkdocs serve

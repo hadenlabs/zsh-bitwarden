@@ -40,7 +40,7 @@ python.setup:
 .PHONY: python.environment
 python.environment:
 	@echo "=====> environment python..."
-	pipenv --venv || $(PIPENV_INSTALL) --python=${PYTHON_VERSION} --skip-lock
+	pipenv --venv || $(PIPENV_INSTALL) --skip-lock
 	@echo ${MESSAGE_HAPPY}
 
 # python pre-commit make for python.

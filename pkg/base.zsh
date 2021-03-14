@@ -74,5 +74,10 @@ function bw::search {
                | awk '{print $1}' \
                | perl -pe 'chomp' \
             )
+    if [ -z "${uuid}" ]; then
+        return
+    fi
     bw::value::factory "${uuid}" | ghead -c -1 | pbcopy
+    echo "${BITWARDEN_MESSAGE_COPIED}"
+    zle accept-line
 }

@@ -19,6 +19,11 @@ license: 'MIT'
 # Canonical GitHub repo
 github_repo: hadenlabs/zsh-bitwarden
 
+screenshots:
+  - name: 'fzf bitwarden'
+    url: './static/screenshots/fzf-bitwarden.png'
+    description: 'search key with bitwarden'
+
 # Badges to display
 badges:
   - name: Lint
@@ -39,12 +44,30 @@ requirements: |-
 
   This is a list of plugins that need to be installed previously to enjoy all the goodies of this configuration:
 
-  ```{bash}
-  https://github.com/hadenlabs/zsh-core
-
-  ```
+  * [zsh-core](https://github.com/hadenlabs/zsh-core)
 
 usage: |
+
+  Unlock your BitWarden vault:
+
+  ```
+  bw unlock
+  ```
+
+  Enter your password and then copy the session token into the `BW_SESSION` environment variable:
+
+  ```
+  export BW_SESSION="SECRETKEYWILLBEHERE"
+  ```
+
+  Sync your local vault with the cloud:
+
+  ```
+  bw sync
+  ```
+
+  Then run the shortcut:
+
   `CTRL x + k`: run fzf bitwarden
 
 installation:

@@ -22,14 +22,15 @@ zsh-bitwarden plugin for zsh.
 
 zsh-bitwarden is an open-sourced software licensed under the [MIT license](LICENSE.md).
 
+## Screenshots
+
+![fzf bitwarden](./static/screenshots/fzf-bitwarden.png) _search key with bitwarden_
+
 ## Requirements
 
 This is a list of plugins that need to be installed previously to enjoy all the goodies of this configuration:
 
-```{bash}
-https://github.com/hadenlabs/zsh-core
-
-```
+- [zsh-core](https://github.com/hadenlabs/zsh-core)
 
 ## Installation
 
@@ -66,6 +67,26 @@ to your `.zshrc` where you're adding your other plugins.
 3.  Enjoy!
 
 ## Usage
+
+Unlock your BitWarden vault:
+
+```
+bw unlock
+```
+
+Enter your password and then copy the session token into the `BW_SESSION` environment variable:
+
+```
+export BW_SESSION="SECRETKEYWILLBEHERE"
+```
+
+Sync your local vault with the cloud:
+
+```
+bw sync
+```
+
+Then run the shortcut:
 
 `CTRL x + k`: run fzf bitwarden
 

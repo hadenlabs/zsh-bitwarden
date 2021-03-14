@@ -18,6 +18,5 @@ source "${ZSH_BITWARDEN_PATH}"/internal/main.zsh
 # shellcheck source=/dev/null
 source "${ZSH_BITWARDEN_PATH}"/pkg/main.zsh
 
-
 zle -N fbw
 bindkey '^Xk' fbw

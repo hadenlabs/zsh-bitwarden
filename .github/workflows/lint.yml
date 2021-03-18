@@ -19,9 +19,9 @@ env:
   LC_ALL: en_US.UTF-8
 
 jobs:
-  lint:
-    name: lint validation files with pre-commit
-    runs-on: Ubuntu-20.04
+  precommit:
+    name: build
+    runs-on: ubuntu-20.04
     env:
       LANG: en_US.UTF-8
       LC_ALL: en_US.UTF-8
@@ -72,6 +72,4 @@ jobs:
         run: pipenv install --dev --deploy --skip-lock --python="$(which python)"
 
       - name: execute pre-commit
-        run: |
-          [ -e ".env" ] || cp -rf .env.example .env
-          pipenv run pre-commit run --all-files
+        run: pipenv run pre-commit run --all-files

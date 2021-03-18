@@ -20,8 +20,6 @@ function bitwarden::internal::main::factory {
 
 bitwarden::internal::main::factory
 
-if ! type -p rsync > /dev/null; then bitwarden::internal::rync::install; fi
-if ! type -p bw > /dev/null; then bitwarden::internal::bitwarden::install; fi
-if ! type -p fzf > /dev/null; then bitwarden::internal::fzf::install; fi
-if ! type -p yarn > /dev/null; then bitwarden::internal::yarn::install; fi
-if ! type -p node > /dev/null; then bitwarden::internal::node::install; fi
+if ! core::exists fzf; then core::install fzf; fi
+if ! core::exists rsync; then core::install rsync; fi
+if ! core::exists bw; then bitwarden::internal::bitwarden::install; fi

@@ -18,10 +18,6 @@
 
 zsh-bitwarden plugin for zsh.
 
-## :page_facing_up: License
-
-zsh-bitwarden is an open-sourced software licensed under the [MIT license](LICENSE.md).
-
 ## Screenshots
 
 ![fzf bitwarden](./static/screenshots/fzf-bitwarden.png) _search key with bitwarden_
@@ -110,7 +106,7 @@ File a GitHub [issue](https://github.com/hadenlabs/zsh-bitwarden/issues), send u
 
 Please use the [issue tracker](https://github.com/hadenlabs/zsh-bitwarden/issues) to report any bugs or file feature requests.
 
-### Developing
+### Development
 
 In general, PRs are welcome. We follow the typical "fork-and-pull" Git workflow.
 
@@ -133,6 +129,10 @@ Copyright © 2018-2021 [Hadenlabs](https://hadenlabs.com)
 ## Trademarks
 
 All other trademarks referenced herein are the property of their respective owners.
+
+## License
+
+The code and styles are licensed under the MIT license [See project license.](LICENSE).
 
 ## Don't forget to 🌟 Star 🌟 the repo if you like zsh-bitwarden
 

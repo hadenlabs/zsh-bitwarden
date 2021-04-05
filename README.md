@@ -14,7 +14,7 @@
 
 # zsh-bitwarden
 
-[![Lint](https://github.com/hadenlabs/zsh-bitwarden/actions/workflows/lint.yml/badge.svg?branch=develop)](https://github.com/hadenlabs/zsh-bitwarden/actions) [![Issues](https://img.shields.io/github/issues/hadenlabs/zsh-bitwarden.svg)](https://github.com/hadenlabs/zsh-bitwarden/issues) [![Latest Release](https://img.shields.io/github/release/hadenlabs/zsh-bitwarden.svg)](https://github.com/hadenlabs/zsh-bitwarden/releases)
+[![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/hadenlabs/zsh-bitwarden.svg?label=latest&sort=semver)](https://github.com/hadenlabs/zsh-bitwarden/releases) [![Lint](https://github.com/hadenlabs/zsh-bitwarden/actions/workflows/lint.yml/badge.svg?branch=develop)](https://github.com/hadenlabs/zsh-bitwarden/actions) [![Issues](https://img.shields.io/github/issues/hadenlabs/zsh-bitwarden.svg)](https://github.com/hadenlabs/zsh-bitwarden/issues) [![Latest Release](https://img.shields.io/github/release/hadenlabs/zsh-bitwarden.svg)](https://github.com/hadenlabs/zsh-bitwarden/releases)
 
 zsh-bitwarden plugin for zsh.
 
@@ -41,7 +41,7 @@ If you're using [oh-my-zsh](https://gitub.com/robbyrussell/oh-my-zsh), install t
 
 ### [antigen](https://github.com/zsh-users/antigen) users
 
-If you're using [Antigen](https://github.com/zsh-lovers/antigen), install this plugin by doing the following:
+If you're using [Antigen](https://github.com/zsh-users/antigen), install this plugin by doing the following:
 
 1.  Add `antigen bundle hadenlabs/zsh-bitwarden` to your `.zshrc` where you're adding your other plugins.
 2.  Either open a new terminal to force zsh to load the new plugin, or run `antigen bundle hadenlabs/zsh-bitwarden` in a running zsh session.
@@ -49,7 +49,7 @@ If you're using [Antigen](https://github.com/zsh-lovers/antigen), install this p
 
 ### [antibody](https://github.com/getantibody/antibody) users
 
-If you're using [Antigen](https://github.com/getantibody/antibody), install this plugin by doing the following:
+If you're using [Antibody](https://github.com/getantibody/antibody), install this plugin by doing the following:
 
 1.  Add :
 
@@ -98,7 +98,7 @@ Search key in bitwarden.
 
 **Got a question?**
 
-File a GitHub [issue](https://github.com/hadenlabs/zsh-bitwarden/issues), send us an [email](email) or join our [Slack Community](slack).
+File a GitHub [issue](https://github.com/hadenlabs/zsh-bitwarden/issues).
 
 ## Contributing
 
@@ -118,9 +118,20 @@ In general, PRs are welcome. We follow the typical "fork-and-pull" Git workflow.
 
 **NOTE:** Be sure to rebase the latest changes from "upstream" before making a pull request!
 
-#### Versioning
+## Module Versioning
 
-Releases are managed using github release feature. We use [Semantic Versioning](http://semver.org) for all the releases. Every change made to the code base will be referred to in the release notes (except for cleanups and refactorings).
+This Module follows the principles of [Semantic Versioning (SemVer)](https://semver.org/).
+
+Using the given version number of `MAJOR.MINOR.PATCH`, we apply the following constructs:
+
+1. Use the `MAJOR` version for incompatible changes.
+1. Use the `MINOR` version when adding functionality in a backwards compatible manner.
+1. Use the `PATCH` version when introducing backwards compatible bug fixes.
+
+### Backwards compatibility in `0.0.z` and `0.y.z` version
+
+- In the context of initial development, backwards compatibility in versions `0.0.z` is **not guaranteed** when `z` is increased. (Initial development)
+- In the context of pre-release, backwards compatibility in versions `0.y.z` is **not guaranteed** when `y` is increased. (Pre-release)
 
 ## Copyright
 
@@ -132,7 +143,7 @@ All other trademarks referenced herein are the property of their respective owne
 
 ## License
 
-The code and styles are licensed under the MIT license [See project license.](LICENSE).
+The code and styles are licensed under the LGPLv3 license [See project license.](LICENSE).
 
 ## Don't forget to 🌟 Star 🌟 the repo if you like zsh-bitwarden
 

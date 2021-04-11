@@ -9,3 +9,12 @@ function bitwarden::internal::bitwarden::install {
     fi
     yarn global add bw
 }
+
+function bitwarden::internal::load::env {
+    local name_env
+    name_env=$(echo "${BITWARDEN_VARS_LIST}" | tr ' ' '\n' | fzf | awk -F: '{print $1}')
+    if [ -z "${name_env}" ]; then
+        return
+    fi
+    eval env-secrets bw "${name_env}"
+}

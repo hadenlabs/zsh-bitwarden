@@ -14,7 +14,7 @@
 
 # zsh-bitwarden
 
-[![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/hadenlabs/zsh-bitwarden.svg?label=latest&sort=semver)](https://github.com/hadenlabs/zsh-bitwarden/releases) [![Lint](https://github.com/hadenlabs/zsh-bitwarden/actions/workflows/lint.yml/badge.svg?branch=develop)](https://github.com/hadenlabs/zsh-bitwarden/actions) [![Issues](https://img.shields.io/github/issues/hadenlabs/zsh-bitwarden.svg)](https://github.com/hadenlabs/zsh-bitwarden/issues) [![Latest Release](https://img.shields.io/github/release/hadenlabs/zsh-bitwarden.svg)](https://github.com/hadenlabs/zsh-bitwarden/releases)
+[![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/hadenlabs/zsh-bitwarden.svg?label=latest&sort=semver)](https://github.com/hadenlabs/zsh-bitwarden/releases) [![Lint](https://github.com/hadenlabs/zsh-bitwarden/actions/workflows/lint.yml/badge.svg?branch=develop)](https://github.com/hadenlabs/zsh-bitwarden/actions) [![Issues](https://img.shields.io/github/issues/hadenlabs/zsh-bitwarden.svg)](https://github.com/hadenlabs/zsh-bitwarden/issues) [![Latest Release](https://img.shields.io/github/release/hadenlabs/zsh-bitwarden.svg)](https://github.com/hadenlabs/zsh-bitwarden/releases) [![Beacon](https://ga-beacon.appspot.com/G-MZEK48EGE8/zsh-bitwarden/readme)](https://github.com/hadenlabs/zsh-bitwarden)
 
 zsh-bitwarden plugin for zsh.
 
@@ -143,7 +143,7 @@ All other trademarks referenced herein are the property of their respective owne
 
 ## License
 
-The code and styles are licensed under the LGPLv3 license [See project license.](LICENSE).
+The code and styles are licensed under the LGPL-3.0 license [See project license.](LICENSE).
 
 ## Don't forget to 🌟 Star 🌟 the repo if you like zsh-bitwarden
 

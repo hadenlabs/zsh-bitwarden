@@ -27,17 +27,23 @@ screenshots:
 # Badges to display
 badges:
   - name: GitHub tag (latest SemVer)
-    image: https://img.shields.io/github/v/tag/hadenlabs/zsh-bitwarden.svg?label=latest&sort=semver
+    image: https://img.shields.io/github/v/tag/hadenlabs/zsh-bitwarden?label=latest&sort=semver
+    url: https://github.com/hadenlabs/zsh-bitwarden/releases
+  - name: Latest Release
+    image: https://img.shields.io/github/release/hadenlabs/zsh-bitwarden
     url: https://github.com/hadenlabs/zsh-bitwarden/releases
   - name: Lint
-    image: https://github.com/hadenlabs/zsh-bitwarden/actions/workflows/lint.yml/badge.svg?branch=develop
+    image: https://img.shields.io/github/workflow/status/hadenlabs/zsh-bitwarden/lint-code
     url: https://github.com/hadenlabs/zsh-bitwarden/actions
   - name: Issues
-    image: https://img.shields.io/github/issues/hadenlabs/zsh-bitwarden.svg
+    image: https://img.shields.io/github/issues/hadenlabs/zsh-bitwarden
     url: https://github.com/hadenlabs/zsh-bitwarden/issues
-  - name: Latest Release
-    image: https://img.shields.io/github/release/hadenlabs/zsh-bitwarden.svg
-    url: https://github.com/hadenlabs/zsh-bitwarden/releases
+  - name: Conventional Commits
+    image: https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow
+    url: https://conventionalcommits.org
+  - name: KeepAChangelog
+    image: https://img.shields.io/badge/Keep%20A%20Changelog-1.0.0-%23E05735
+    url: https://keepachangelog.com
   - name: Beacon
     image: https://ga-beacon.appspot.com/G-MZEK48EGE8/zsh-bitwarden/readme
     url: https://github.com/hadenlabs/zsh-bitwarden

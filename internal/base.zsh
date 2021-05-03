@@ -16,5 +16,6 @@ function bitwarden::internal::load::env {
     if [ -z "${name_env}" ]; then
         return
     fi
-    eval env-secrets bw "${name_env}"
+
+    eval $(env-secrets bw "${name_env}")
 }

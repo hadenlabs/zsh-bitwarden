@@ -26,9 +26,6 @@ screenshots:
 
 # Badges to display
 badges:
-  - name: GitHub tag (latest SemVer)
-    image: https://img.shields.io/github/v/tag/hadenlabs/zsh-bitwarden?label=latest&sort=semver
-    url: https://github.com/hadenlabs/zsh-bitwarden/releases
   - name: Latest Release
     image: https://img.shields.io/github/release/hadenlabs/zsh-bitwarden
     url: https://github.com/hadenlabs/zsh-bitwarden/releases

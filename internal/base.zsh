@@ -7,7 +7,7 @@ function bitwarden::internal::bitwarden::install {
         message_warning "${BITWARDEN_MESSAGE_BREW}"
         return
     fi
-    yarn global add bw
+    yarn global add @bitwarden/cli
 }
 
 function bitwarden::internal::load::env {
@@ -17,5 +17,5 @@ function bitwarden::internal::load::env {
         return
     fi
 
-    eval $(env-secrets bw "${name_env}")
+    eval "$(env-secrets bw "${name_env}")"
 }
